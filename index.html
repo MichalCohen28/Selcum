@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellcom Final Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Pop-up video - hidden at start -->
+    <div id="welcomePop" class="welcome-overlay hidden">
+        <div class="video-pop-container">
+            <video id="characterVideo" playsinline>
+                <source src="Purple_star_mascot_202604281142_1.webm" type="video/webm">
+            </video>
+        </div>
+    </div>
+
+    <header>
+        <div class="top-bar">
+            <div class="top-links">
+                <span class="active">פרטי</span>
+                <span>דרושים</span>
+                <span>עסקי</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">📍 מרכזי שירות</div>
+        </div>
+
+        <div class="main-header">
+            <div class="right-section">
+                <img src="download-removebg-preview.png" alt="כוכב סלקום">
+                <ul class="nav-menu">
+                    <li>סלולר</li>
+                    <li>חנות</li>
+                    <li>אינטרנט וסיבים</li>
+                    <li>סלקום tv+</li>
+                    <li>סלקום חו"ל</li>
+                    <li>חשמל</li>
+                    <li>שירות ותמיכה</li>
+                </ul>
+            </div>
+
+            <div class="left-section">
+                <div class="esim-text">החלפה ל-eSIM</div>
+                <div class="separator"></div>
+                <button class="personal-area-btn">אזור אישי</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="promo-banner">
+        <div class="banner-container">
+
+            <div class="star-click-wrapper" onclick="openStarVideo()">
+                <div class="click-me-label">לחץ עליי ✨</div>
+                <div class="star-image-area">
+                    <img src="image copy.png" alt="כוכב סלקום">
+                </div>
+            </div>
+
+            <div class="text-content">
+                <h1>שלום ישראל,</h1>
+                <p>ברוך הבא לחנות ההטבות,</p>
+                <div class="points">מאזן הכוכבים שלך הוא: 1000 כוכבים</div>
+                <div class="start">בוא נתחיל!</div>
+            </div>
+
+        </div>
+    </section>
+
+    <nav class="categories-nav">
+        <div class="cat-item"><div class="cat-circle">📺</div><span>סטרימינג</span></div>
+        <div class="cat-item"><div class="cat-circle">🔵</div><span>גלישה</span></div>
+        <div class="cat-item"><div class="cat-circle">📱</div><span>מכשירים</span></div>
+        <div class="cat-item"><div class="cat-circle">⚡</div><span>Energy</span></div>
+        <div class="cat-item"><div class="cat-circle">🛡️</div><span>אבטחה</span></div>
+    </nav>
+
+    <main class="store-layout">
+        <aside class="sidebar">
+            <div class="breadcrumb">דף הבית / מנות מוצעות</div>
+            <h2>הטבות מוצעות</h2>
+
+            <div class="filter-section">
+                <p style="font-size: 14px; color: #666;">בחרת לסנן לפי:</p>
+                <div class="filter-tag">טלפונים סלולריים <span>✕</span></div>
+                <div class="filter-tag">ציוד תקשורת ביתי <span>✕</span></div>
+            </div>
+        </aside>
+
+        <div class="benefits-grid">
+            <div class="card">
+                <div class="card-header bg-black">
+                    <span class="badge-new">חדש! NETFLIX</span>
+                </div>
+                <div class="card-body">
+                    <h3>נטפליקס חינם לחודש</h3>
+                    <p>חודש ראשון עלינו - חוויה ממכרת</p>
+                </div>
+                <div class="card-footer">★ ב-50 כוכבים בלבד!</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-blue">
+                    <span class="badge-new">חדש! SPORTS</span>
+                </div>
+                <div class="card-body">
+                    <h3>חבילת ערוצי ספורט</h3>
+                    <p>כל משחקי הליגה והליגות האירופיות</p>
+                </div>
+                <div class="card-footer">★ ב-200 כוכבים</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-grad-blue">
+                    📶
+                </div>
+                <div class="card-body">
+                    <h3>הגדלת חבילת גלישה</h3>
+                    <p>שדרג את המהירות לעד double.5</p>
+                </div>
+                <div class="card-footer">★ ב-50 כוכבים בלבד</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-bubble">
+        <img src="image copy.png" alt="כוכב צ׳אט" class="chat-star">
+        <div class="chat-content">
+            <div class="chat-title">כוכבי כאן!</div>
+            <div class="chat-message">רוצה שאעזור לך לבחור הטבה?</div>
+        </div>
+    </div>
+
+    <script>
+        function openStarVideo() {
+            const popup = document.getElementById('welcomePop');
+            const video = document.getElementById('characterVideo');
+
+            if (!popup || !video) return;
+
+            popup.classList.remove('hidden');
+
+            video.pause();
+            video.currentTime = 0;
+            video.muted = false;
+            video.volume = 1;
+
+            video.play();
+        }
+
+        function closeVideoPopup() {
+            const popup = document.getElementById('welcomePop');
+            const video = document.getElementById('characterVideo');
+
+            if (!popup || !video) return;
+
+            video.pause();
+            video.currentTime = 0;
+            video.muted = true;
+            video.volume = 0;
+
+            popup.classList.add('hidden');
+        }
+
+        window.addEventListener('load', function () {
+            const video = document.getElementById('characterVideo');
+
+            if (!video) return;
+
+           video.addEventListener('timeupdate', function () {
+            if (video.duration && video.currentTime >= video.duration - 0.5) {
+                closeVideoPopup();
+            }
+        });
+        });
+    </script>
+
+</body>
+</html>

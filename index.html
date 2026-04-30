@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Pop-up video - hidden at start -->
     <div id="welcomePop" class="welcome-overlay hidden">
         <div class="video-pop-container">
@@ -25,7 +24,7 @@
                 <span>דרושים</span>
                 <span>עסקי</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 5px;">📍 מרכזי שירות</div>
+            <div style="display: flex; align-items: center; gap: 5px;"></div>
         </div>
 
         <div class="main-header">
@@ -39,6 +38,7 @@
                     <li>סלקום חו"ל</li>
                     <li>חשמל</li>
                     <li>שירות ותמיכה</li>
+                    <li class="highlight-purple">Cellcum Stars</li> 
                 </ul>
             </div>
 
@@ -51,21 +51,27 @@
     </header>
 
     <section class="promo-banner">
+        
         <div class="banner-container">
-
             <div class="star-click-wrapper" onclick="openStarVideo()">
                 <div class="click-me-label">לחץ עליי ✨</div>
-                <div class="star-image-area">
-                    <img src="Star No BG.png" alt="כוכב סלקום">
-                </div>
+               <div class="star-image-area">
+                <video autoplay muted loop playsinline class="star-video">
+                    <source src="Waving Star.webm" type="video/webm">
+                </video>
+            </div>
             </div>
 
             <div class="text-content">
+            <div class="hero-eyebrow">✦ חנות הכוכבים ✦</div>  <!-- ← חדש -->
                 <h1>שלום ישראל,</h1>
                 <p>ברוך הבא לחנות ההטבות,</p>
-                <div class="points">מאזן הכוכבים שלך הוא: 1000 כוכבים</div>
+                <div class="balance-pill">
+                    <div class="balance-num">1,000</div>
+                    <div class="star-badge"></div>
+                    <div class="balance-label">כוכבים זמינים<br>למימוש</div>
+                </div>
             </div>
-
         </div>
     </section>
 
@@ -177,6 +183,7 @@
     </div>
 
    <script>
+    
     const popup = document.getElementById('welcomePop');
     const video = document.getElementById('characterVideo');
 

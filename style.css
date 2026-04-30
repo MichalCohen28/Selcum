@@ -119,6 +119,14 @@ body {
     border-color: var(--purple-main);
     transform: translateY(-40%) rotate(225deg);
 }
+/* צביעת החץ בסגול עבור הפריט הספציפי */
+.nav-menu li.highlight-purple::after {
+    border-color: var(--purple-main);
+}
+.highlight-purple {
+        color: var(--purple-main); /* גוון סגול שמתאים למיתוג */
+        font-weight: bold; /* אופציונלי: כדי להבליט עוד יותר */
+    }
 
 .left-section {
     display: flex;
@@ -164,7 +172,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .promo-banner::before {
     content: "";
     position: absolute;
@@ -172,6 +179,40 @@ body {
     background: rgba(0, 0, 0, 0.32);
 }
 
+.promo-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle, rgba(255,255,255,1) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,220,255,0.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.8) 2.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(220,180,255,0.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.95) 2px, transparent 2px),
+        radial-gradient(circle, rgba(200,180,255,0.8) 1px, transparent 1px);
+    background-size: 
+        317px 241px,
+        533px 189px,
+        711px 397px,
+        423px 503px,
+        289px 331px,
+        601px 277px;
+    background-position:
+        37px 71px,
+        180px 130px,
+        90px 20px,
+        310px 55px,
+        450px 90px,
+        70px 150px;
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 0;
+    animation: starsTwinkle 5s ease-in-out infinite alternate;
+}
+@keyframes starsTwinkle {
+    from { opacity: 0.4; }
+    to   { opacity: 0.9; }
+}
 .banner-container {
     width: 100%;
     max-width: 1200px;
@@ -203,7 +244,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+.star-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+}
 .star-image-area img {
     max-width: 100%;
     height: auto;
@@ -261,9 +307,32 @@ body {
 .text-content h1 {
     font-size: 30px;
     margin: 0;
-    font-weight: bold;
+    font-weight: 900;
+    background: linear-gradient(90deg, #fff 0%, #e0a0f0 25%, #c026d3 50%, #e0a0f0 75%, #fff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;  
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    animation: shimmer 4s linear infinite;
 }
 
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    padding: 6px 16px;
+    border: 1px solid rgba(192,38,211,0.35);
+    border-radius: 999px;
+    background: rgba(192,38,211,0.08);
+}
 .text-content p {
     font-size: 21px;
     margin: 8px 0;
@@ -273,6 +342,43 @@ body {
 .text-content .points {
     font-size: 21px;
     margin-top: 1px;
+}
+.balance-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(89, 2, 83, 0.127);
+    border: 1px solid rgba(245,200,66,0.3);
+    border-radius: 999px;
+    padding: 14px 24px;
+    margin-top: 12px;
+}
+
+.balance-pill .star-badge {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #f5c842, #e07b00);
+    clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+    animation: spinStar 6s linear infinite;
+    flex-shrink: 0;
+}
+
+.balance-pill .balance-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f5c842;
+    letter-spacing: -1px;
+}
+
+.balance-pill .balance-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+    text-align: right;
+}
+
+@keyframes spinStar {
+    to { transform: rotate(360deg); }
 }
 /* ===== NEW CATEGORIES AREA ===== */
 .categories-nav {
@@ -496,7 +602,12 @@ body {
 .ball-basketball {
     transform: rotate(10deg) translate(10px, -8px);
 }
-
+ #starfield {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    }
 .badge-new-overlay {
     position: absolute;
     top: 16px;
@@ -697,6 +808,18 @@ body {
         gap: 35px;
     }
 }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .categories-nav {
+        gap: 55px;
+        padding: 36px 30px 42px;
+    }
+
+    .store-layout {
+        padding: 10px 30px 100px;
+        gap: 35px;
+    }
+}
 
 @media (max-width: 850px) {
     .categories-nav {
@@ -721,5 +844,139 @@ body {
     .benefits-grid {
         grid-template-columns: 1fr;
         width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* ── HEADER ── */
+    .top-bar {
+        padding: 0 16px;
+        font-size: 11px;
+    }
+
+    .main-header {
+        padding: 0 16px;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .right-section {
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .right-section img {
+        width: 80px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .left-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* ── BANNER ── */
+    .banner-container {
+        flex-direction: column-reverse;
+        padding: 20px 16px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .star-image-area,
+    .star-click-wrapper {
+        width: 200px;
+    }
+
+    .text-content {
+        align-items: center;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .text-content h1 {
+        font-size: 26px;
+    }
+
+    .text-content p {
+        font-size: 16px;
+    }
+
+    .click-me-label {
+        font-size: 13px;
+        top: -14px;
+    }
+
+    .balance-pill {
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .balance-pill .balance-num {
+        font-size: 22px;
+    }
+
+    /* ── CATEGORIES ── */
+    .categories-nav {
+        gap: 20px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 20px 16px;
+    }
+
+    .cat-item {
+        flex: 0 0 70px;
+    }
+
+    .cat-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cat-item span {
+        font-size: 12px;
+    }
+
+    /* ── STORE ── */
+    .store-layout {
+        flex-direction: column;
+        padding: 16px 16px 60px;
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .sidebar h2 {
+        font-size: 26px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* ── FLOATING BUBBLE ── */
+    .floating-bubble {
+        width: 220px;
+        padding: 10px 70px 10px 12px;
+    }
+
+    .chat-title {
+        font-size: 14px;
+    }
+
+    .chat-message {
+        font-size: 12px;
     }
 }

@@ -602,12 +602,7 @@ body {
 .ball-basketball {
     transform: rotate(10deg) translate(10px, -8px);
 }
- #starfield {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    }
+
 .badge-new-overlay {
     position: absolute;
     top: 16px;
@@ -795,6 +790,172 @@ body {
 .hidden {
     display: none !important;
 }
+/* רקע הפופ-אפ - מכסה את כל המסך */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* טשטוש וכהות */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000; /* הכי גבוה שיש */
+}
+
+/* החלון עצמו - קטן וממורכז */
+.modal-container {
+    background: white;
+    width: 90%;
+    max-width: 520px;
+    border-radius: 25px;
+    padding: 25px; /* צמצום קל בריווח הכללי */
+    position: relative;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* כפתור איקס */
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #f5f5f5;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* כותרות הפופ-אפ */
+.modal-top-icon { width: 90px; margin-bottom: 8px; }
+.modal-header-section h2 { margin: 0 0 8px; font-size: 24px; color: #2d005d; }
+.modal-desc { font-size: 14px; color: #666; line-height: 1.4; margin-bottom: 20px; }
+
+/* הגריד של הכרטיסים */
+.modal-selection-grid {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.price-card {
+    flex: 1;
+    border: 1.5px solid #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 160px; /* צמצום גובה מינימלי כללי */
+}
+
+.card-label { padding: 5px; font-size: 12px; font-weight: bold; color: white; }
+.purple-label { background: #a626bd; }
+.gold-label { background: #d4af37; }
+
+/* סידור התוכן בתוך הכרטיס - מרוכז וצפוף */
+.card-main-content {
+    padding: 10px 15px; /* צמצום פדינג פנימי */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* מרכוז התוכן במקום פיזור */
+    gap: 4px; /* רווח קבוע וקטן בין השורות[cite: 2] */
+}
+
+/* כותרת השדרוג (1GB / הוסף עוד...) */
+.upgrade-info {
+    font-size: 17px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px; 
+    min-height: 40px; /* גובה מינימלי מצומצם ליישור[cite: 2] */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* תצוגת המחיר והמספרים[cite: 2] */
+.price-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 35px; /* צמצום גובה אזור המחיר[cite: 2] */
+}
+
+.price-display .num {
+    font-size: 26px; /* הקטנה למראה מעודן יותר[cite: 2] */
+    font-weight: 900;
+    color: #000;
+}
+
+.star-icon-gold { color: #f5c842; font-size: 20px; }
+
+.currency, .label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* טקסט קטן בתחתית[cite: 2] */
+.one-time {
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 8px; /* רווח קטן לפני הכפתור[cite: 2] */
+}
+
+/* פלוס בין הכרטיסים */
+.plus-divider { font-size: 18px; font-weight: bold; color: #2d005d; }
+
+/* כפתורי פעולה */
+.modal-action-btn {
+    width: 90%;
+    margin: 0 auto 10px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.purple-stroke { border: 2px solid #2d005d; color: #2d005d; }
+.black-stroke { border: 2px solid #000; color: #000; }
+
+/* אפקטים לכפתורים */
+.purple-stroke:hover {
+    background-color: #000000; 
+    color: white; 
+}
+
+.black-stroke:hover {
+    background-color: #000; 
+    color: white; 
+}
+
+.modal-action-btn:active {
+    transform: scale(0.96);
+}
+
+.modal-footer-balance { font-size: 13px; font-weight: bold; color: #444; border-top: 1px solid #eee; padding-top: 12px; }
+
+/* הסתרה */
+.hidden { display: none !important; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1100px) {

@@ -38,7 +38,7 @@
                     <li>סלקום חו"ל</li>
                     <li>חשמל</li>
                     <li>שירות ותמיכה</li>
-                    <li class="highlight-purple">Cellcum Stars</li> 
+                    <li class="highlight-purple">Cellcom Stars</li> 
                 </ul>
             </div>
 
@@ -77,7 +77,7 @@
 
     <!-- Categories Nav -->
    <nav class="categories-nav">
-    <div class="cat-item active-cat">
+    <div class="cat-item ">
         <div class="cat-circle">
             <img src="Images/icons/Video.png" alt="סטרימינג">
         </div>
@@ -121,13 +121,16 @@
                 <p style="font-size: 14px; color: #666;">בחרת לסנן לפי:</p>
                 <div class="filter-tag">סטרימינג<span>✕</span></div>
                 <div class="filter-tag">מכשירים<span>✕</span></div>
+                <div class="filter-tag">גלישה<span>✕</span></div>
+                <button class="change-filter-btn">שנה סינון</button>
             </div>
         </aside>
 
         <div class="benefits-grid">
 
             <!-- Card 1: Internet / Browsing -->
-            <div class="card" onclick="openBrowsingPopup()" style="cursor: pointer;">                <div class="card-header bg-purple-grad">
+            <div class="card" onclick="openBrowsingPopup()" style="cursor: pointer;">                
+                <div class="card-header bg-purple-grad">
                     <img src="5G.png" alt="אינטרנט" class="card-header-img" width="100%">
                 </div>
                 <div class="card-body">
@@ -141,7 +144,7 @@
             </div>
 
             <!-- Card 2: Sports -->
-            <div class="card">
+            <div class="card" onclick="openSportsPopup()" style="cursor: pointer;">                
                 <div class="card-header bg-sports">
                     <img src="Sport.png" alt="ספורט" class="card-header-img" width="100%">
                 </div>
@@ -156,21 +159,19 @@
             </div>
 
             <!-- Card 3: Netflix -->
-            <div class="card">
+           <!-- כרטיס נטפליקס המעודכן -->
+            <div class="card" onclick="openNetflixPopup()" style="cursor: pointer;">
                 <div class="card-header bg-netflix">
-                    <img src="Netflix.png" alt="נטפליקס" class="card-header-img"  width="200" height="130">
+                    <img src="Netflix.png" alt="נטפליקס" class="card-header-img" width="200" height="130">
                 </div>
                 <div class="card-body">
-
                     <h3>נטפליקס חינם לחודש</h3>
                     <p>חודש ראשון עלינו - חוויה ממכרת</p>
                 </div>
                 <div class="card-footer">
-                    <span class="star-icon">★</span> ב-50 כוכבים !
+                    <span class="star-icon">★</span> ב-70 כוכבים !
                 </div>
             </div>
-
-        </div>
     </main>
 
     <div class="floating-bubble">
@@ -189,11 +190,11 @@
         
         <!-- כותרת ואייקון -->
         <div class="modal-header-section">
-            <img src="Images/icons/PopUP.png" alt="גלישה" class="modal-top-icon">
+            <img src="Images/icons/PopUP.png" alt="גלישה" width="30%">
             <h2>חבילת גלישה לבית</h2>
             <p class="modal-desc">
-               "חבילת גלישה ביתית Cellcom Surf  *לחודש - חבילה אמינה, מהירה במיוחד , 
-               אידיאלית לצפייה בסטרימינג, עבודה מהבית ומשחקים מקוונים. אינטרנט חלק לכל המשפחה." 
+               חבילת גלישה ביתית Cellcom Surf  לחודש - חבילה אמינה, מהירה במיוחד  
+               אידיאלית לצפייה בסטרימינג, עבודה מהבית ומשחקים מקוונים. אינטרנט חלק לכל המשפחה. 
             </p>
         </div>
 
@@ -201,7 +202,7 @@
         <div class="modal-selection-grid">
             <!-- אפשרות כוכבים -->
             <div class="price-card stars-card">
-                <div class="card-label purple-label">שילום בכוכבים</div>
+                <div class="card-label purple-label">תשלום בכוכבים</div>
                 <div class="card-main-content">
                     <p class="upgrade-info">1GB</p>
                     
@@ -238,6 +239,81 @@
         <div class="modal-footer-balance">סה"כ כוכבים זמינים: 1000</div>
     </div>
 </div>
+<!-- פופ-אפ נטפליקס -->
+<div id="netflixPop" class="modal-overlay hidden">
+    <div class="modal-container">
+        <!-- כפתור סגירה -->
+        <button onclick="closeNetflixPopup()" class="close-modal-btn">✕</button>
+        
+        <!-- כותרת ואייקון -->
+        <div class="modal-header-section">
+            <img src="Images/icons/Netflix-Logo.png" alt="נטפליקס" width="40%">
+            <h2>נטפליקס חינם לחודש</h2>
+            <p class="modal-desc">
+                תהנו מחודש של צפייה ללא הגבלה בסרטים ובסדרות הכי חמות. 
+                חווית צפייה ממכרת באיכות הגבוהה ביותר, עכשיו בכוכבים שלכם.
+            </p>
+        </div>
+
+        <!-- אזור הבחירה - הטבה אחת מרכזית -->
+        <div class="modal-selection-grid">
+            <div class="price-card stars-card">
+                <div class="card-label red-label">תשלום בכוכבים</div>
+                <div class="card-main-content">
+                    <p class="upgrade-info">חודש מתנה</p>
+                    
+                    <div class="price-display">
+                        <span class="num">70</span>
+                        <span class="currency">
+                            <span class="star-icon-gold">★</span> כוכבים
+                        </span>
+                    </div>
+                    
+                    <span class="one-time">מימוש מיידי</span>
+                </div>
+                <button class="modal-action-btn purple-stroke">קבלו את ההטבה</button>
+            </div>
+        </div>
+
+        <div class="modal-footer-balance">סה"כ כוכבים זמינים: 1000</div>
+    </div>
+</div>
+<!-- פופ-אפ ספורט -->
+<div id="sportsPop" class="modal-overlay hidden">
+    <div class="modal-container">
+        <button onclick="closeSportsPopup()" class="close-modal-btn">✕</button>
+        
+        <div class="modal-header-section">
+            <img src="Sport.png" alt="ספורט" class="modal-top-icon">
+            <h2>חבילת ערוצי ספורט</h2>
+            <p class="modal-desc">
+                כל משחקי ליגת העל, הליגות האירופיות הבכירות וליגת האלופות בחבילה אחת. 
+                אל תפספסו אף גול – הכל בשידור ישיר ובאיכות HD.
+            </p>
+        </div>
+
+        <div class="modal-selection-grid">
+            <div class="price-card stars-card">
+                <div class="card-label blue-label">תשלום בכוכבים</div>
+                <div class="card-main-content">
+                    <p class="upgrade-info">חבילת פרימיום</p>
+                    
+                    <div class="price-display">
+                        <span class="num">200</span>
+                        <span class="currency">
+                            <span class="star-icon-gold">★</span> כוכבים
+                        </span>
+                    </div>
+                    
+                    <span class="one-time">פתיחה מיידית</span>
+                </div>
+                <button class="modal-action-btn purple-stroke">רכישה בכוכבים</button>
+            </div>
+        </div>
+
+        <div class="modal-footer-balance">סה"כ כוכבים זמינים: 1000</div>
+    </div>
+</div>
    <script>
     // פונקציה לפתיחת הפופ-אפ של חבילת הגלישה
     function openBrowsingPopup() {
@@ -259,6 +335,42 @@
             closeBrowsingPopup();
         }
     });
+    // פונקציות לפופ-אפ ספורט
+function openSportsPopup() {
+    document.getElementById('sportsPop').classList.remove('hidden');
+}
+
+function closeSportsPopup() {
+    document.getElementById('sportsPop').classList.add('hidden');
+}
+
+// עדכון המאזין הכללי לסגירה בלחיצה בחוץ
+window.addEventListener('click', function(event) {
+    const browsingModal = document.getElementById('browsingPop');
+    const netflixModal = document.getElementById('netflixPop');
+    const sportsModal = document.getElementById('sportsPop');
+    
+    if (event.target === browsingModal) closeBrowsingPopup();
+    if (event.target === netflixModal) closeNetflixPopup();
+    if (event.target === sportsModal) closeSportsPopup();
+});
+    // פונקציות לפופ-אפ נטפליקס
+function openNetflixPopup() {
+    document.getElementById('netflixPop').classList.remove('hidden');
+}
+
+function closeNetflixPopup() {
+    document.getElementById('netflixPop').classList.add('hidden');
+}
+
+// עדכון פונקציית הסגירה הכללית (לחיצה מחוץ לחלון)
+window.addEventListener('click', function(event) {
+    const browsingModal = document.getElementById('browsingPop');
+    const netflixModal = document.getElementById('netflixPop');
+    
+    if (event.target === browsingModal) closeBrowsingPopup();
+    if (event.target === netflixModal) closeNetflixPopup();
+});
     const popup = document.getElementById('welcomePop');
     const video = document.getElementById('characterVideo');
 
